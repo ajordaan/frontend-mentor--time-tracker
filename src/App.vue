@@ -1,11 +1,19 @@
 <template>
   <div id="app">
     <user-profile></user-profile>
+    <activity-card
+      v-for="activity in activities"
+      :key="activity.title"
+      :activity="activity"
+      :currentTimeframe="'weekly'"
+    ></activity-card>
   </div>
 </template>
 
 <script>
 import UserProfile from "./components/UserProfile.vue";
+import data from "@/assets/data";
+import ActivityCard from "./components/ActivityCard.vue";
 export default {
   name: "App",
   data() {
@@ -14,20 +22,20 @@ export default {
     };
   },
   created() {
-    fetch("src/assets/data.json")
-      .then((res) => res.text())
-      .then((json) => console.log(json));
+    this.activities = data;
   },
-  components: { UserProfile },
+  components: { UserProfile, ActivityCard },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
 body {
   background-color: hsl(226, 43%, 10%);
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
