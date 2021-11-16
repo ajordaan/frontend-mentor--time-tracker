@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <user-profile></user-profile>
-    <activity-card
-      v-for="activity in activities"
-      :key="activity.title"
-      :activity="activity"
-      :currentTimeframe="'weekly'"
-    ></activity-card>
+    <div class="container">
+      <activity-card class="activity-card"
+        v-for="activity in activities"
+        :key="activity.title"
+        :activity="activity"
+        :currentTimeframe="'weekly'"
+      ></activity-card>
+    </div>
   </div>
 </template>
 
