@@ -40,7 +40,9 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  column-gap: 2rem;
+}
+
 .wrapper {
   display: flex;
   /* flex-wrap: wrap; maybe add this in a media query for mobile? */
