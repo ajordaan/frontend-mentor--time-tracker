@@ -60,16 +60,13 @@ export default {
 body {
   background-color: hsl(226, 43%, 10%);
   font-size: 18px;
-}
-#app {
-  font-family: "Rubik", sans-serif;
+   font-family: "Rubik", sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  margin: 10% 20%;
-
+  margin: 5% 20%;
 }
 
 * {
