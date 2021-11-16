@@ -1,6 +1,8 @@
 <template>
-  <div id="app">
-    <user-profile></user-profile>
+  <div class="wrapper">
+    <div class="user-profile-container">
+      <user-profile></user-profile>
+    </div>
     <div class="container">
       <activity-card class="activity-card"
         v-for="activity in activities"
@@ -39,6 +41,14 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+.wrapper {
+  display: flex;
+  /* flex-wrap: wrap; maybe add this in a media query for mobile? */
+}
+
+.user-profile-container {
+  margin-top: 4rem;
+  margin-right: 2rem;
 }
 
 .activity-card {
