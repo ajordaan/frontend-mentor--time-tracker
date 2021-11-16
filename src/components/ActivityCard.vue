@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="icon-background">
+    <div :style="`background-color: ${activity.colour} `">
       <img :src="iconName" />
     </div>
     <div class="card-body">
