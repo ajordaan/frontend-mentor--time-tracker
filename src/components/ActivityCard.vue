@@ -6,6 +6,7 @@
     <div class="card-body">
       <h4>{{ activity.title }}</h4>
       <h3>{{ activity.timeframes[currentTimeframe].current }}hrs</h3>
+      <p>Last Week - {{activity.timeframes[currentTimeframe].previous }}hrs </p>
     </div>
   </div>
 </template>
