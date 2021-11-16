@@ -1,11 +1,11 @@
 <template>
-  <div class="wrapper">
-    <div class="person-info">
+  <div class="user-profile-wrapper">
+    <div class="user-info rounded-corners">
       <img src="@/assets/image-jeremy.png" />
       <h5>Report for</h5>
-      <h2>Jeremy Robson</h2>
+      <h2 class="title">Jeremy Robson</h2>
     </div>
-    <div class="timeframe">
+    <div class="timeframe rounded-corners">
       <ul>
         <li>Daily</li>
         <li>Weekly</li>
@@ -19,4 +19,40 @@
 export default {};
 </script>
 
-<style></style>
+<style scoped>
+
+.rounded-corners {
+  border-radius: 10px;
+}
+
+.user-profile-wrapper {
+text-align: left;
+}
+.user-info {
+background-color: hsl(236, 68%, 71%) ;
+padding: 2rem 4rem 4rem 2rem ;
+}
+
+.timeframe {
+  background-color: hsl(235, 46%, 20%);
+  padding: 4rem 4rem 2rem 2rem ;
+  position: relative;
+  top: -2rem;
+  z-index: -1;
+}
+
+.timeframe li {
+  padding-bottom: 1rem;
+}
+
+.user-info .title {
+  font-size: 3rem;
+}
+
+.user-info img {
+  height: 4rem;
+}
+li {
+  list-style-type: none;
+}
+</style>
