@@ -1,7 +1,13 @@
 <template>
   <div class="wrapper">
-    <user-profile @timeframeClicked="changed" class="user-profile-container"></user-profile>
-    <activity-card-grid :activities="activities" :currentTime="currentTime" class="activity-card-grid-container"></activity-card-grid>
+    <user-profile
+      @timeframeClicked="changed"
+      class="user-profile-container"
+    ></user-profile>
+    <activity-card-grid
+      :activities="activities"
+      :currentTime="currentTime"
+    ></activity-card-grid>
   </div>
 </template>
 
@@ -14,22 +20,20 @@ export default {
   data() {
     return {
       activities: [],
-      currentTime: 'daily'
+      currentTime: "daily",
     };
- 
   },
   created() {
     this.activities = data;
   },
   components: { UserProfile, ActivityCardGrid },
   methods: {
-    changed(time){
-      console.log(time)
-      this.currentTime = time
-    }
-  }
+    changed(time) {
+      console.log(time);
+      this.currentTime = time;
+    },
+  },
 };
-  
 </script>
 
 <style scoped>
@@ -41,12 +45,6 @@ export default {
 }
 
 .user-profile-container {
-  margin-top: 4rem;
   margin-right: 2rem;
-  width: 30%;
 }
-.activity-card-grid-container{
-  width: 70%;
-}
-
 </style>
