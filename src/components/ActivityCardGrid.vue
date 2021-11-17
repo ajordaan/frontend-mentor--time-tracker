@@ -26,10 +26,12 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  column-gap: 2rem;
+  gap: 2rem;
 }
 
 .activity-card {
-  flex-grow: 1;
+  flex: 1 25%;
+  margin-top: -4rem;
+/* flex-basis: 25%; */
 }
 </style>
