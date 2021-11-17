@@ -36,6 +36,7 @@ export default {
 .wrapper {
   margin: 5% 10%;
   display: flex;
+  align-items: flex-start;
   /* flex-wrap: wrap; maybe add this in a media query for mobile? */
 }
 
