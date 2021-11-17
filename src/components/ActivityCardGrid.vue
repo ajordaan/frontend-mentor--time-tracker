@@ -5,7 +5,7 @@
       v-for="activity in activities"
       :key="activity.title"
       :activity="activity"
-      :currentTimeframe="'weekly'"
+      :currentTimeframe="currentTime"
     ></activity-card>
   </div>
 </template>
@@ -13,7 +13,9 @@
 <script>
 import ActivityCard from "./ActivityCard.vue";
 export default {
-  props: { activities: { type: Array, required: true } },
+  props: { 
+    activities: { type: Array, required: true }
+  ,currentTime: {type: String, required: true} },
   components: { ActivityCard },
 };
 </script>

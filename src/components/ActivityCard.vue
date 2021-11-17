@@ -11,7 +11,8 @@
       <h3 class="current-hours">
         {{ activity.timeframes[currentTimeframe].current }}hrs
       </h3>
-      <p>Last Week - {{ activity.timeframes[currentTimeframe].previous }}hrs</p>
+      <p>{{timeframeString}} - {{ activity.timeframes[currentTimeframe].previous }}hrs
+      </p>
     </div>
   </div>
 </template>
@@ -31,8 +32,18 @@ export default {
         .toLowerCase()
         .replace(" ", "-")}.svg`;
     },
-  },
-};
+      timeframeString(){
+        switch(this.currentTimeframe) {
+          case 'daily': return "Yesterday";
+          case 'weekly': return "Last week";
+          case 'monthly': return "Last month";
+      }
+      return ''
+  }
+}
+}
+
+
 </script>
 
 <style scoped>

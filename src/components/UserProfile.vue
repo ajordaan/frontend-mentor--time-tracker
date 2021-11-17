@@ -7,16 +7,18 @@
     </div>
     <div class="timeframe rounded-corners">
       <ul>
-        <li>Daily</li>
-        <li>Weekly</li>
-        <li>Monthly</li>
+        <li @click="$emit('timeframeClicked', 'daily')">Daily</li>
+        <li @click="$emit('timeframeClicked', 'weekly')">Weekly</li>
+        <li @click="$emit('timeframeClicked', 'monthly')">Monthly</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {};
+
 </script>
 
 <style scoped>
@@ -33,7 +35,6 @@ export default {};
   padding: 4rem 4rem 2rem 2rem;
   position: relative;
   top: -2rem;
-  z-index: -1;
 }
 
 .timeframe li {
