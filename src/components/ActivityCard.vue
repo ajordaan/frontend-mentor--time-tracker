@@ -1,12 +1,17 @@
 <template>
   <div>
-    <div class="card-header rounded-corners" :style="`background-color: ${activity.colour} `">
+    <div
+      class="card-header rounded-corners"
+      :style="`background-color: ${activity.colour} `"
+    >
       <img class="card-image" :src="iconName" />
     </div>
     <div class="card-body rounded-corners">
       <h4 class="card-title">{{ activity.title }}</h4>
-      <h3 class="current-hours">{{ activity.timeframes[currentTimeframe].current }}hrs</h3>
-      <p>Last Week - {{activity.timeframes[currentTimeframe].previous }}hrs </p>
+      <h3 class="current-hours">
+        {{ activity.timeframes[currentTimeframe].current }}hrs
+      </h3>
+      <p>Last Week - {{ activity.timeframes[currentTimeframe].previous }}hrs</p>
     </div>
   </div>
 </template>
@@ -22,16 +27,15 @@ export default {
     iconName() {
       console.log("BASE URL: " + process.env.BASE_URL);
       console.log("Title: " + this.activity.title.toLowerCase());
-      return `${
-        process.env.BASE_URL
-      }assets/icon-${this.activity.title.toLowerCase().replace(" ", "-")}.svg`;
+      return `${process.env.BASE_URL}assets/icon-${this.activity.title
+        .toLowerCase()
+        .replace(" ", "-")}.svg`;
     },
   },
 };
 </script>
 
 <style scoped>
-
 .card-header {
   height: 100px;
   position: relative;
@@ -49,6 +53,8 @@ export default {
   background-color: hsl(235, 46%, 20%);
   padding: 2rem;
   text-align: left;
+  /* Offset the card header bottom position */
+  /* margin-bottom: -4rem;  */
 }
 
 .card-title {

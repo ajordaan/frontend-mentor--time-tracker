@@ -20,18 +20,17 @@ export default {};
 </script>
 
 <style scoped>
-
 .user-profile-wrapper {
-text-align: left;
+  text-align: left;
 }
 .user-info {
-background-color: hsl(236, 68%, 71%) ;
-padding: 2rem 4rem 4rem 2rem ;
+  background-color: hsl(236, 68%, 71%);
+  padding: 2rem 4rem 4rem 2rem;
 }
 
 .timeframe {
   background-color: hsl(235, 46%, 20%);
-  padding: 4rem 4rem 2rem 2rem ;
+  padding: 4rem 4rem 2rem 2rem;
   position: relative;
   top: -2rem;
   z-index: -1;
