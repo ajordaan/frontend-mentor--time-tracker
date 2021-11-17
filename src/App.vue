@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
 
 .container {
   display: flex;
@@ -57,22 +57,5 @@ export default {
   flex-grow: 1;
 }
 
-body {
-  background-color: hsl(226, 43%, 10%);
-  font-size: 18px;
-   font-family: "Rubik", sans-serif;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #fff;
-  margin: 5% 20%;
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-weight: normal;
-}
 </style>

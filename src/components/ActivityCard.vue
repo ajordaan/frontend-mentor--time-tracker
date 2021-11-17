@@ -32,9 +32,6 @@ export default {
 
 <style scoped>
 
-.rounded-corners {
-  border-radius: 10px;
-}
 .card-header {
   height: 100px;
   position: relative;

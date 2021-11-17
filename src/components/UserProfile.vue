@@ -21,10 +21,6 @@ export default {};
 
 <style scoped>
 
-.rounded-corners {
-  border-radius: 10px;
-}
-
 .user-profile-wrapper {
 text-align: left;
 }
