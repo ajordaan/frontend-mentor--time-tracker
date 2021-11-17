@@ -34,6 +34,7 @@ export default {
 
 <style scoped>
 .wrapper {
+  margin: 5% 10%;
   display: flex;
   /* flex-wrap: wrap; maybe add this in a media query for mobile? */
 }
