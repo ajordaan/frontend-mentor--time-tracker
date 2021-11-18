@@ -43,6 +43,9 @@ export default {
   align-items: flex-start;
   flex-wrap: wrap;
 }
+.user-profile-container {
+  flex-grow: 1;
+}
 @media screen and (min-width: 1080px) {
   .wrapper {
     flex-wrap: nowrap;
