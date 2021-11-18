@@ -68,6 +68,10 @@ export default {
   /* margin-bottom: -4rem;  */
 }
 
+.card-body:hover{
+  background-color: hsl(235, 45%, 61%);
+}
+
 .card-title {
   padding-bottom: 2rem;
 }
@@ -83,7 +87,7 @@ export default {
 }
 
 p {
-  color: hsl(235, 45%, 61%);
+  color: hsl(236, 100%, 87%);
 }
 
 .icon-background {

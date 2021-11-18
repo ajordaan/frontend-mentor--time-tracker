@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <user-profile @timeframeClicked="changed" class="user-profile-container"></user-profile>
+    <user-profile @timeframeClicked="changed" class="user-profile-container" ></user-profile>
     <activity-card-grid :activities="activities" :currentTime="currentTime" class="activity-card-grid-container"></activity-card-grid>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       activities: [],
-      currentTime: 'daily'
+      currentTime: 'daily',
     };
  
   },
