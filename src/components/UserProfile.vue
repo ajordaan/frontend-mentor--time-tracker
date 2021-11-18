@@ -50,5 +50,10 @@ export default {};
 }
 li {
   list-style-type: none;
+  color: hsl(235, 45%, 61%);
+}
+
+li:hover{
+  color: white;
 }
 </style>

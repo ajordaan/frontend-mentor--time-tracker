@@ -7,7 +7,7 @@
       <img class="card-image" :src="iconName" />
     </div>
     <div class="card-body rounded-corners">
-      <h4 class="card-title">{{ activity.title }}</h4>
+      <h4 class="card-title">{{ activity.title }} <img src="/assets/icon-ellipsis.svg" alt=""></h4>
       <h3 class="current-hours">
         {{ activity.timeframes[currentTimeframe].current }}hrs
       </h3>
@@ -72,12 +72,22 @@ export default {
   padding-bottom: 2rem;
 }
 
+.card-title img{
+    float: right;
+    margin-top: 0.4rem;
+}
+
 .current-hours {
   font-size: 3rem;
   padding-bottom: 1rem;
 }
 
+p {
+  color: hsl(235, 45%, 61%);
+}
+
 .icon-background {
   background-color: hsl(15, 100%, 70%);
 }
+
 </style>
