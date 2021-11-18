@@ -41,8 +41,16 @@ export default {
   margin: 5% 10%;
   display: flex;
   align-items: flex-start;
-  /* flex-wrap: wrap; maybe add this in a media query for mobile? */
+  flex-wrap: wrap;
 }
+@media screen and (min-width: 1080px) {
+  .wrapper {
+    flex-wrap: nowrap;
+  }
+
+  .user-profile-container {
+    margin-right: 2rem;
+  }
 
 .user-profile-container {
   margin-right: 2rem;
