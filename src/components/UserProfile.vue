@@ -28,6 +28,8 @@ export default {};
 .user-info {
   background-color: hsl(236, 68%, 71%);
   padding: 2rem 4rem 4rem 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .timeframe {
