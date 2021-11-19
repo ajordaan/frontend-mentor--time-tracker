@@ -7,44 +7,43 @@
     </div>
     <div class="timeframe rounded-corners">
       <ul>
-        <li @click="$emit('timeframeClicked', 'daily'); addClass('daily');" :class="{isCurrent: isDailyActive}" >Daily</li>
-        <li @click="$emit('timeframeClicked', 'weekly'); addClass('weekly')" :class="{isCurrent: isWeeklyActive}">Weekly</li>
-        <li @click="$emit('timeframeClicked', 'monthly'); addClass('monthly')" :class="{isCurrent: isMonthlyActive}">Monthly</li>
+        <li
+          @click="timeframeClicked('daily')"
+          :class="{ isCurrent: selectedTime == 'daily' }"
+        >
+          Daily
+        </li>
+        <li
+          @click="timeframeClicked('weekly')"
+          :class="{ isCurrent: selectedTime == 'weekly' }"
+        >
+          Weekly
+        </li>
+        <li
+          @click="timeframeClicked('monthly')"
+          :class="{ isCurrent: selectedTime == 'monthly' }"
+        >
+          Monthly
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
-  data(){
-    return{
-      isDailyActive: false,
-      isWeeklyActive: false,
-      isMonthlyActive: false
-    }
+  data() {
+    return {
+      selectedTime: "daily",
+    };
   },
-  methods:{
-    addClass(clicked){
-      this.isDailyActive = false
-      this.isWeeklyActive = false
-      this.isMonthlyActive = false
-      if(clicked == 'daily'){
-        this.isDailyActive = true
-      }
-      if(clicked == 'weekly'){
-        this.isWeeklyActive = true
-      }
-      if(clicked == 'monthly'){
-        this.isMonthlyActive = true
-      }
-      
-      console.log(clicked)
-  }
-  }
-}
-
+  methods: {
+    timeframeClicked(time) {
+      this.selectedTime = time;
+      this.$emit("timeframeClicked", time);
+    },
+  },
+};
 </script>
 
 <style scoped>
