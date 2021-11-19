@@ -52,7 +52,7 @@ export default {
   text-align: left;
 }
 .user-info {
-  background-color:hsl(246, 80%, 60%);
+  background-color: hsl(246, 80%, 60%);
   padding: 2rem 4rem 4rem 2rem;
   position: relative;
   z-index: 2;
@@ -84,16 +84,15 @@ li {
   color: hsl(235, 45%, 61%);
 }
 
-li:hover{
+li:hover {
   color: white;
 }
 
-li:active{
+li:active {
   color: white;
 }
 
-.isCurrent{
-  color:white;
+.isCurrent {
+  color: white;
 }
-
 </style>
