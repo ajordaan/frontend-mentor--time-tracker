@@ -49,6 +49,9 @@ export default {};
 
 .user-info img {
   height: 4rem;
+  padding: 1px;
+  border: 2px solid #fff;
+  border-radius: 50%;
 }
 li {
   list-style-type: none;
