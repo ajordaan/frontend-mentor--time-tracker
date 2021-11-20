@@ -1,12 +1,12 @@
 <template>
   <div class="user-profile-wrapper">
-    <div class="user-info rounded-corners">
+    <div ref="userInfo" class="user-info rounded-corners">
       <img src="@/assets/image-jeremy.png" />
-      <h5>Report for</h5>
+      <h5 class="label">Report for</h5>
       <h2 class="title">Jeremy Robson</h2>
     </div>
-    <div class="timeframe rounded-corners">
-      <ul>
+    <div ref="timeframe" class="timeframe rounded-corners">
+      <ul class="label">
         <li
           @click="timeframeClicked('daily')"
           :class="{ isCurrent: selectedTime == 'daily' }"
@@ -66,6 +66,7 @@ export default {
 
 .timeframe li {
   padding-bottom: 1rem;
+  list-style-type: none;
 }
 
 .user-info .title {
@@ -74,13 +75,13 @@ export default {
 
 .user-info img {
   height: 4rem;
-  padding: 1px;
   border: 2px solid #fff;
   border-radius: 50%;
+  margin-bottom: 2.5rem;
 }
-li {
-  list-style-type: none;
-  color: hsl(235, 45%, 61%);
+
+.label {
+  color: hsl(236, 100%, 87%);
 }
 
 li:hover {
