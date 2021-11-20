@@ -48,9 +48,16 @@ export default {
       return "";
     },
   },
-}
 
-
+  methods: {
+    getCardBodyHeight() {
+      return this.$refs.cardBody.clientHeight;
+    },
+    setCardBodyHeight(height) {
+      this.$refs.cardBody.style.height = height + "px";
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -100,5 +107,4 @@ p {
 .icon-background {
   background-color: hsl(15, 100%, 70%);
 }
-
 </style>
