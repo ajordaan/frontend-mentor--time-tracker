@@ -6,6 +6,7 @@
       :key="activity.title"
       :activity="activity"
       :currentTimeframe="currentTime"
+      ref="cards"
     ></activity-card>
   </div>
 </template>
@@ -18,6 +19,24 @@ export default {
     currentTime: { type: String, required: true },
   },
   components: { ActivityCard },
+  methods: {
+    getTallestCard() {
+      let maxHeight = -1;
+
+      for (const card of this.$refs.cards) {
+        const cardHeight = card.getCardBodyHeight();
+        if (cardHeight > maxHeight) maxHeight = cardHeight;
+      }
+
+      return maxHeight;
+    },
+
+    setCardBodyHeights(height) {
+      for (const card of this.$refs.cards) {
+        card.setCardBodyHeight(height);
+      }
+    },
+  },
 };
 </script>
 
