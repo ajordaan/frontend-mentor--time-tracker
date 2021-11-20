@@ -13,9 +13,10 @@
 <script>
 import ActivityCard from "./ActivityCard.vue";
 export default {
-  props: { 
-    activities: { type: Array, required: true }
-  ,currentTime: {type: String, required: true} },
+  props: {
+    activities: { type: Array, required: true },
+    currentTime: { type: String, required: true },
+  },
   components: { ActivityCard },
 };
 </script>
@@ -32,6 +33,6 @@ export default {
 .activity-card {
   flex: 1 25%;
   margin-top: -4rem;
-/* flex-basis: 25%; */
+  /* flex-basis: 25%; */
 }
 </style>

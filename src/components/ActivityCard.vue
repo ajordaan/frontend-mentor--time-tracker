@@ -6,12 +6,16 @@
     >
       <img class="card-image" :src="iconName" />
     </div>
-    <div class="card-body rounded-corners">
-      <h4 class="card-title">{{ activity.title }} <img src="/assets/icon-ellipsis.svg" alt=""></h4>
+    <div ref="cardBody" class="card-body rounded-corners">
+      <h4 class="card-title">
+        {{ activity.title }} <img src="/assets/icon-ellipsis.svg" alt="" />
+      </h4>
       <h3 class="current-hours">
         {{ activity.timeframes[currentTimeframe].current }}hrs
       </h3>
-      <p>{{timeframeString}} - {{ activity.timeframes[currentTimeframe].previous }}hrs
+      <p>
+        {{ timeframeString }} -
+        {{ activity.timeframes[currentTimeframe].previous }}hrs
       </p>
     </div>
   </div>
@@ -32,15 +36,18 @@ export default {
         .toLowerCase()
         .replace(" ", "-")}.svg`;
     },
-      timeframeString(){
-        switch(this.currentTimeframe) {
-          case 'daily': return "Yesterday";
-          case 'weekly': return "Last week";
-          case 'monthly': return "Last month";
+    timeframeString() {
+      switch (this.currentTimeframe) {
+        case "daily":
+          return "Yesterday";
+        case "weekly":
+          return "Last week";
+        case "monthly":
+          return "Last month";
       }
-      return ''
-  }
-}
+      return "";
+    },
+  },
 }
 
 
@@ -68,7 +75,7 @@ export default {
   /* margin-bottom: -4rem;  */
 }
 
-.card-body:hover{
+.card-body:hover {
   background-color: hsl(235, 45%, 61%);
 }
 
@@ -76,9 +83,9 @@ export default {
   padding-bottom: 2rem;
 }
 
-.card-title img{
-    float: right;
-    margin-top: 0.4rem;
+.card-title img {
+  float: right;
+  margin-top: 0.4rem;
 }
 
 .current-hours {
