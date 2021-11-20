@@ -28,6 +28,10 @@ export default {
   created() {
     this.activities = data;
   },
+  mounted() {
+    this.resizeCards();
+    window.addEventListener("resize", debounce(this.resizeCards, 250));
+  },
   components: { UserProfile, ActivityCardGrid },
   methods: {
     changed(time) {
@@ -53,21 +57,14 @@ export default {
 function convertRemToPixels(rem) {
   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
-// // leading edge, instead of the trailing.
-// function debounce(func, wait, immediate) {
-// 	var timeout;
-// 	return function() {
-// 		var context = this, args = arguments;
-// 		var later = function() {
-// 			timeout = null;
-// 			if (!immediate) func.apply(context, args);
-// 		};
-// 		var callNow = immediate && !timeout;
-// 		clearTimeout(timeout);
-// 		timeout = setTimeout(later, wait);
-// 		if (callNow) func.apply(context, args);
-// 	};
-// };
+
+function debounce(func, wait) {
+  const timer;
+  return function (event) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(func, wait, event);
+  };
+}
 </script>
 
 <style scoped>
