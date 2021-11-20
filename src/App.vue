@@ -3,10 +3,12 @@
     <user-profile
       @timeframeClicked="changed"
       class="user-profile-container"
+      ref="userProfile"
     ></user-profile>
     <activity-card-grid
       :activities="activities"
       :currentTime="currentTime"
+      ref="activityCards"
     ></activity-card-grid>
   </div>
 </template>
@@ -32,12 +34,25 @@ export default {
       console.log(time);
       this.currentTime = time;
     },
+    resizeCards() {
+      const cardHeight = this.$refs.activityCards.getTallestCard();
+      this.$refs.activityCards.setCardBodyHeights(cardHeight);
+      const cardGridHeight = this.$refs.activityCards.$el.clientHeight;
+      const userProfileHeight = this.$refs.userProfile.$el.clientHeight;
+      const heightDifference = cardGridHeight - userProfileHeight;
+
+      this.$refs.userProfile.$refs.userInfo.style.height =
+        this.$refs.userProfile.$refs.userInfo.clientHeight +
+        heightDifference +
+        convertRemToPixels(2) +
+        "px";
+    },
   },
 };
 
-// // Returns a function, that, as long as it continues to be invoked, will not
-// // be triggered. The function will be called after it stops being called for
-// // N milliseconds. If `immediate` is passed, trigger the function on the
+function convertRemToPixels(rem) {
+  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
 // // leading edge, instead of the trailing.
 // function debounce(func, wait, immediate) {
 // 	var timeout;
