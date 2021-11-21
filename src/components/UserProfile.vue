@@ -88,7 +88,7 @@ li:hover {
   color: white;
 }
 
-li:active {
+.isCurrent {
   color: white;
 }
 
