@@ -87,7 +87,7 @@ export default {
 }
 
 .card-title {
-  padding-bottom: 2rem;
+  padding-bottom: 0.5rem;
 }
 
 .card-title img {
@@ -123,5 +123,9 @@ p {
   .current-hours {
     padding-bottom: 1rem;
   }
+
+  .card-title {
+  padding-bottom: 2rem;
+}
 }
 </style>
