@@ -44,11 +44,17 @@ export default {
       const userProfileHeight = this.$refs.userProfile.$el.clientHeight;
       const heightDifference = cardGridHeight - userProfileHeight;
 
-      this.$refs.userProfile.$refs.userInfo.style.height =
+     if(window.innerWidth >= 1200) {
+       this.$refs.userProfile.$refs.userInfo.style.height =
         this.$refs.userProfile.$refs.userInfo.clientHeight +
         heightDifference +
         convertRemToPixels(2) +
         "px";
+     }
+     else {
+       this.$refs.userProfile.$refs.userInfo.style.removeProperty("height")
+     }
+   
     },
   },
 };
@@ -58,7 +64,7 @@ function convertRemToPixels(rem) {
 }
 
 function debounce(func, wait) {
-  const timer;
+  let timer;
   return function (event) {
     if (timer) clearTimeout(timer);
     timer = setTimeout(func, wait, event);
