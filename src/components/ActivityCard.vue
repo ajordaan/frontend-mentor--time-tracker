@@ -98,8 +98,13 @@ export default {
 }
 
 .current-hours {
-  font-size: 3rem;
-  padding-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.hours {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 p {
