@@ -76,7 +76,7 @@ function debounce(func, wait) {
 }
 
 .user-profile-container {
-  flex-grow: 1;
+  flex: 1 0 30%
 }
 
 @media screen and (min-width: 1200px) {
