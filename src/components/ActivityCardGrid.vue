@@ -50,7 +50,7 @@ export default {
 }
 
 .activity-card {
-  flex: 1 25%;
+  flex: 1 0 30%;
   margin-top: -4rem;
   /* flex-basis: 25%; */
 }
