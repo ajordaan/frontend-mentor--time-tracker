@@ -107,4 +107,16 @@ p {
 .icon-background {
   background-color: hsl(15, 100%, 70%);
 }
+
+@media screen and (min-width: 1200px) {
+  .hours {
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .current-hours {
+    padding-bottom: 1rem;
+  }
+}
 </style>

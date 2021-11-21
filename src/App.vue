@@ -79,7 +79,7 @@ function debounce(func, wait) {
   flex-grow: 1;
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1200px) {
   .wrapper {
     flex-wrap: nowrap;
   }

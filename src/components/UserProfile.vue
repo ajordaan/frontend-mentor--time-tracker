@@ -92,7 +92,9 @@ li:active {
   color: white;
 }
 
-.isCurrent {
-  color: white;
+@media screen and (min-width: 1200px) {
+  .timeframe ul {
+    flex-direction: column;
+  }
 }
 </style>
