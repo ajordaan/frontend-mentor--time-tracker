@@ -64,6 +64,11 @@ export default {
   top: -2rem;
 }
 
+.timeframe ul {
+  display: flex;
+  justify-content: space-between;
+}
+
 .timeframe li {
   padding-bottom: 1rem;
   list-style-type: none;
