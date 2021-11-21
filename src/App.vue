@@ -35,7 +35,6 @@ export default {
   components: { UserProfile, ActivityCardGrid },
   methods: {
     changed(time) {
-      console.log(time);
       this.currentTime = time;
     },
     resizeCards() {

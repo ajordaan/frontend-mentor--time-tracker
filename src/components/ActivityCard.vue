@@ -32,8 +32,6 @@ export default {
 
   computed: {
     iconName() {
-      console.log("BASE URL: " + process.env.BASE_URL);
-      console.log("Title: " + this.activity.title.toLowerCase());
       return `${process.env.BASE_URL}assets/icon-${this.activity.title
         .toLowerCase()
         .replace(" ", "-")}.svg`;
