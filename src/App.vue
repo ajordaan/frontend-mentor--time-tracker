@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <user-profile
-      @timeframeClicked="changed"
+      @timeframeClicked="timeChanged"
       class="user-profile-container"
       ref="userProfile"
     ></user-profile>
@@ -34,7 +34,7 @@ export default {
   },
   components: { UserProfile, ActivityCardGrid },
   methods: {
-    changed(time) {
+    timeChanged(time) {
       this.currentTime = time;
     },
     resizeCards() {
