@@ -10,13 +10,15 @@
       <h4 class="card-title">
         {{ activity.title }} <img src="/assets/icon-ellipsis.svg" alt="" />
       </h4>
-      <h3 class="current-hours">
-        {{ activity.timeframes[currentTimeframe].current }}hrs
-      </h3>
-      <p>
-        {{ timeframeString }} -
-        {{ activity.timeframes[currentTimeframe].previous }}hrs
-      </p>
+      <div class="hours">
+        <h3 class="current-hours">
+          {{ activity.timeframes[currentTimeframe].current }}hrs
+        </h3>
+        <p>
+          {{ timeframeString }} -
+          {{ activity.timeframes[currentTimeframe].previous }}hrs
+        </p>
+      </div>
     </div>
   </div>
 </template>
