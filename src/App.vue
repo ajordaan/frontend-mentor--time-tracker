@@ -1,78 +1,96 @@
 <template>
   <div class="wrapper">
-    <div class="user-profile-container">
-      <user-profile></user-profile>
-    </div>
-    <div class="container">
-      <activity-card class="activity-card"
-        v-for="activity in activities"
-        :key="activity.title"
-        :activity="activity"
-        :currentTimeframe="'weekly'"
-      ></activity-card>
-    </div>
+    <user-profile
+      @timeframeClicked="timeChanged"
+      class="user-profile-container"
+      ref="userProfile"
+    ></user-profile>
+    <activity-card-grid
+      :activities="activities"
+      :currentTime="currentTime"
+      ref="activityCards"
+    ></activity-card-grid>
   </div>
 </template>
 
 <script>
 import UserProfile from "./components/UserProfile.vue";
 import data from "@/assets/data";
-import ActivityCard from "./components/ActivityCard.vue";
+import ActivityCardGrid from "./components/ActivityCardGrid.vue";
 export default {
   name: "App",
   data() {
     return {
       activities: [],
+      currentTime: "daily",
     };
   },
   created() {
     this.activities = data;
   },
-  components: { UserProfile, ActivityCard },
+  mounted() {
+    this.resizeCards();
+    window.addEventListener("resize", debounce(this.resizeCards, 250));
+  },
+  components: { UserProfile, ActivityCardGrid },
+  methods: {
+    timeChanged(time) {
+      this.currentTime = time;
+    },
+    resizeCards() {
+      const cardHeight = this.$refs.activityCards.getTallestCard();
+      this.$refs.activityCards.setCardBodyHeights(cardHeight);
+      const cardGridHeight = this.$refs.activityCards.$el.clientHeight;
+      const userProfileHeight = this.$refs.userProfile.$el.clientHeight;
+      const heightDifference = cardGridHeight - userProfileHeight;
+
+     if(window.innerWidth >= 1200) {
+       this.$refs.userProfile.$refs.userInfo.style.height =
+        this.$refs.userProfile.$refs.userInfo.clientHeight +
+        heightDifference +
+        convertRemToPixels(2) +
+        "px";
+     }
+     else {
+       this.$refs.userProfile.$refs.userInfo.style.removeProperty("height")
+     }
+   
+    },
+  },
 };
-</script>
 
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  column-gap: 2rem;
+function convertRemToPixels(rem) {
+  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
+function debounce(func, wait) {
+  let timer;
+  return function (event) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(func, wait, event);
+  };
+}
+</script>
+
+<style scoped>
 .wrapper {
+  margin: 5% 10%;
   display: flex;
-  /* flex-wrap: wrap; maybe add this in a media query for mobile? */
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .user-profile-container {
-  margin-top: 4rem;
-  margin-right: 2rem;
+  flex: 1 0 30%
 }
 
-.activity-card {
-  flex-grow: 1;
-}
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    flex-wrap: nowrap;
+  }
 
-body {
-  background-color: hsl(226, 43%, 10%);
-  font-size: 18px;
-   font-family: "Rubik", sans-serif;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #fff;
-  margin: 5% 20%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-weight: normal;
+  .user-profile-container {
+    margin-right: 2rem;
+  }
 }
 </style>

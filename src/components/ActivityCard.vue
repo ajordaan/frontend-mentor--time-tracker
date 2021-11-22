@@ -1,12 +1,24 @@
 <template>
   <div>
-    <div class="card-header rounded-corners" :style="`background-color: ${activity.colour} `">
+    <div
+      class="card-header rounded-corners"
+      :style="`background-color: ${activity.colour} `"
+    >
       <img class="card-image" :src="iconName" />
     </div>
-    <div class="card-body rounded-corners">
-      <h4 class="card-title">{{ activity.title }}</h4>
-      <h3 class="current-hours">{{ activity.timeframes[currentTimeframe].current }}hrs</h3>
-      <p>Last Week - {{activity.timeframes[currentTimeframe].previous }}hrs </p>
+    <div ref="cardBody" class="card-body rounded-corners">
+      <h4 class="card-title">
+        {{ activity.title }} <img src="/assets/icon-ellipsis.svg" alt="" />
+      </h4>
+      <div class="hours">
+        <h3 class="current-hours">
+          {{ activity.timeframes[currentTimeframe].current }}hrs
+        </h3>
+        <p>
+          {{ timeframeString }} -
+          {{ activity.timeframes[currentTimeframe].previous }}hrs
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -20,21 +32,35 @@ export default {
 
   computed: {
     iconName() {
-      console.log("BASE URL: " + process.env.BASE_URL);
-      console.log("Title: " + this.activity.title.toLowerCase());
-      return `${
-        process.env.BASE_URL
-      }assets/icon-${this.activity.title.toLowerCase().replace(" ", "-")}.svg`;
+      return `${process.env.BASE_URL}assets/icon-${this.activity.title
+        .toLowerCase()
+        .replace(" ", "-")}.svg`;
+    },
+    timeframeString() {
+      switch (this.currentTimeframe) {
+        case "daily":
+          return "Yesterday";
+        case "weekly":
+          return "Last week";
+        case "monthly":
+          return "Last month";
+      }
+      return "";
+    },
+  },
+
+  methods: {
+    getCardBodyHeight() {
+      return this.$refs.cardBody.clientHeight;
+    },
+    setCardBodyHeight(height) {
+      this.$refs.cardBody.style.height = height + "px";
     },
   },
 };
 </script>
 
 <style scoped>
-
-.rounded-corners {
-  border-radius: 10px;
-}
 .card-header {
   height: 100px;
   position: relative;
@@ -52,18 +78,54 @@ export default {
   background-color: hsl(235, 46%, 20%);
   padding: 2rem;
   text-align: left;
+  /* Offset the card header bottom position */
+  /* margin-bottom: -4rem;  */
+}
+
+.card-body:hover {
+  background-color: hsl(235, 45%, 61%);
 }
 
 .card-title {
-  padding-bottom: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.card-title img {
+  float: right;
+  margin-top: 0.4rem;
 }
 
 .current-hours {
-  font-size: 3rem;
-  padding-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.hours {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  color: hsl(236, 100%, 87%);
 }
 
 .icon-background {
   background-color: hsl(15, 100%, 70%);
+}
+
+@media screen and (min-width: 1200px) {
+  .hours {
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .current-hours {
+    padding-bottom: 1rem;
+  }
+
+  .card-title {
+  padding-bottom: 2rem;
+}
 }
 </style>
