@@ -104,25 +104,25 @@ li:hover {
   .timeframe ul {
     flex-direction: column;
   }
- .user-info .title {
-   font-size: 3rem;
+  .user-info .title {
+    font-size: 3rem;
   }
 
   .user-info img {
-  margin-bottom: 2rem;
-}
+    margin-bottom: 2rem;
+  }
 
-.user-info {
-  padding: 2rem 4rem 4rem 2rem;
-  display: block;
-}
+  .user-info {
+    padding: 2rem 4rem 4rem 2rem;
+    display: block;
+  }
 
-.timeframe {
-  padding: 4rem 4rem 2rem 2rem;
-}
+  .timeframe {
+    padding: 4rem 4rem 2rem 2rem;
+  }
 
-.timeframe li {
-  padding-bottom: 1rem;
-}
+  .timeframe li {
+    padding-bottom: 1rem;
+  }
 }
 </style>
